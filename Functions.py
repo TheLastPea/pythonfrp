@@ -104,7 +104,8 @@ def getCollection(m):
     else:
         return [m]
 
-def hitE(m1, m2, trace = False): #Collision code with no reaction to the event just to know they have touched (C)
+def hitE(m1, m2, trace = False): #Hit code - checking both collections using ._touches: 
+                                 #no reaction to the event just to know m and e have touched eachother (C)
     def hitFN(o):
         ml1 = getCollection(m1)
         ml2 = getCollection(m2)
@@ -143,8 +144,8 @@ def react(m, when, what = None):
     for proxy in coll:
         proxy._react(when, what)
 
-def react1(m, when, what = None):
-    if what is None:
+def react1(m, when, what = None): #(C) Exactly the same as react^ but 1. is savedForCollection as react1 
+    if what is None:                                                 #2. uses proxy._react1(when,what) 
         what = when
         when = m
         m = World.world
@@ -165,8 +166,8 @@ def when(m, when, what = None):
     for proxy in coll:
         proxy._react(happen(when), what)
 
-def when1(m, when, what = None):
-    if what is None:
+def when1(m, when, what = None): #(C) Exactly the same as when^ but 1. is savedForCollection as when1
+    if what is None:                                                #2. uses proxy._react1(when,what)
         what = when
         when = m
         m = World.world
