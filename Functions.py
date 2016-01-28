@@ -104,7 +104,7 @@ def getCollection(m):
     else:
         return [m]
 
-def hitE(m1, m2, trace = False):
+def hitE(m1, m2, trace = False): #Collision code with no reaction to the event just to know they have touched (C)
     def hitFN(o):
         ml1 = getCollection(m1)
         ml2 = getCollection(m2)
